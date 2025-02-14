@@ -20,12 +20,21 @@ function agregarAmigo() {
         alert('Por favor, ingresa un nombre válido.');
     }
     console.log(amigos);
-
 }
 
 function mostrarAmigos(){
     const lista = document.getElementById('listaAmigos');
     lista.innerHTML = amigos.map(amigo => `<li>${amigo}</li>`).join('');
+}
+
+function sortearAmigo(){
+    if(amigos.length == 0){
+        asignarTextoElemento('h2', 'No has ingresado ningún amigo a la lista');
+        return;
+    }
+    const x = Math.floor(Math.random()* amigos.length);
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<li>Tu amigo secreto es: ${amigos[x]}</li>`;
 }
 
 asignarTextoElemento("h1", "Amigo Secreto 🤐")
