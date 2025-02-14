@@ -12,17 +12,20 @@ function agregarAmigo() {
     if (regex.test(nuevoAmigo)){
         //Lo agregamos a la lista 
         amigos.push(nuevoAmigo);
-
         //Limpiamos el input
         document.getElementById('amigo').value = '';
+        //Actualizar la lista en la interfaz
+        mostrarAmigos();
     } else {
         alert('Por favor, ingresa un nombre válido.');
     }
-
-    
-
     console.log(amigos);
 
+}
+
+function mostrarAmigos(){
+    const lista = document.getElementById('listaAmigos');
+    lista.innerHTML = amigos.map(amigo => `<li>${amigo}</li>`).join('');
 }
 
 asignarTextoElemento("h1", "Amigo Secreto 🤐")
